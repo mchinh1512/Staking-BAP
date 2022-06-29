@@ -133,7 +133,7 @@ contract ChinhChef is Ownable {
         pool.allocPoint = _allocPoint;
     }
 
-    // View function to see pending BFIs on frontend.
+    // View function to see pending Chinhs on frontend.
     function pendingBearn(uint _pid, address _user) external view returns (uint) {
         PoolInfo storage pool = poolInfo[_pid];
         UserInfo storage user = userInfo[_pid][_user];
