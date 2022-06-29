@@ -16,13 +16,13 @@ contract ChinhChef is Ownable {
         uint amount;     // How many LP tokens the user has provided.
         uint rewardDebt; // Reward debt. See explanation below.
         //
-        // We do some fancy math here. Basically, any point in time, the amount of BFIs
+        // We do some fancy math here. Basically, any point in time, the amount of Chinhs
         // entitled to a user but is pending to be distributed is:
         //
-        //   pending reward = (user.amount * pool.accBfiPerShare) - user.rewardDebt
+        //   pending reward = (user.amount * pool.accChinhPerShare) - user.rewardDebt
         //
         // Whenever a user deposits or withdraws LP tokens to a pool. Here's what happens:
-        //   1. The pool's `accBfiPerShare` (and `lastRewardBlock`) gets updated.
+        //   1. The pool's `accChinhPerShare` (and `lastRewardBlock`) gets updated.
         //   2. User receives the pending reward sent to his/her address.
         //   3. User's `amount` gets updated.
         //   4. User's `rewardDebt` gets updated.
@@ -32,16 +32,16 @@ contract ChinhChef is Ownable {
     // Info of each pool.
     struct PoolInfo {
         IERC20 lpToken;           // Address of LP token contract.
-        uint allocPoint;       // How many allocation points assigned to this pool. BFIs to distribute per block.
-        uint lastRewardBlock;  // Last block number that BFIs distribution occurs.
-        uint accChinhPerShare; // Accumulated BFIs per share, times 1e12. See below.
+        uint allocPoint;       // How many allocation points assigned to this pool. Chinhs to distribute per block.
+        uint lastRewardBlock;  // Last block number that Chinhs distribution occurs.
+        uint accChinhPerShare; // Accumulated Chinhs per share, times 1e12. See below.
         bool isStarted; // if lastRewardBlock has passed
     }
 
     // The Chinh TOKEN!
     ChinhToken public chinh;
 
-    // BFI tokens created per block.
+    // Chinh tokens created per block.
     uint public chinhPerBlock;
 
     // Info of each pool.
@@ -53,7 +53,7 @@ contract ChinhChef is Ownable {
     // Total allocation poitns. Must be the sum of all allocation points in all pools.
     uint public totalAllocPoint = 0;
 
-    // The block number when BFI mining starts.
+    // The block number when Chinh mining starts.
     uint public startBlock;
 
     uint public constant BLOCKS_PER_WEEK = 46500;
@@ -229,7 +229,7 @@ contract ChinhChef is Ownable {
         user.rewardDebt = 0;
     }
 
-    // Safe bfi transfer function, just in case if rounding error causes pool to not have enough BFIs.
+    // Safe chinh transfer function, just in case if rounding error causes pool to not have enough Chinhs.
     function safeChinhTransfer(address _to, uint _amount) internal {
         uint chinhBal = chinh.balanceOf(address(this));
         if (_amount > chinhBal) {
