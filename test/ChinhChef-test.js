@@ -1,5 +1,5 @@
 import {ethers} from 'hardhat';
-const { expect } = require("chai");
+const {expect} = require("chai");
 
   describe('ChinhChef should work', () => {
       it('constructor parameters should be correct', async () => {
