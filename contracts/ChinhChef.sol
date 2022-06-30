@@ -134,7 +134,11 @@ contract ChinhChef is Ownable {
     }
 
     // View function to see pending Chinhs on frontend.
+<<<<<<< HEAD
     function pendingChinh(uint _pid, address _user) external view returns (uint) {
+=======
+    function pendingBearn(uint _pid, address _user) external view returns (uint) {
+>>>>>>> 83c77f0bfefaca9ecd4e77cf16acf12c42375633
         PoolInfo storage pool = poolInfo[_pid];
         UserInfo storage user = userInfo[_pid][_user];
         uint accChinhPerShare = pool.accChinhPerShare;
@@ -229,7 +233,11 @@ contract ChinhChef is Ownable {
         user.rewardDebt = 0;
     }
 
+<<<<<<< HEAD
     // Safe Chinh transfer function, just in case if rounding error causes pool to not have enough Chinhs.
+=======
+    // Safe chinh transfer function, just in case if rounding error causes pool to not have enough Chinhs.
+>>>>>>> 83c77f0bfefaca9ecd4e77cf16acf12c42375633
     function safeChinhTransfer(address _to, uint _amount) internal {
         uint chinhBal = chinh.balanceOf(address(this));
         if (_amount > chinhBal) {
