@@ -34,8 +34,6 @@ contract ChinhChef is Ownable {
 
     uint public startBlock;
 
-    uint public constant BLOCKS_PER_WEEK = 46500;
-
     event Deposit(address indexed user, uint indexed pid, uint amount);
     event Withdraw(address indexed user, uint indexed pid, uint amount);
     event EmergencyWithdraw(address indexed user, uint indexed pid, uint amount);
